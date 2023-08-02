@@ -22,8 +22,12 @@ The main entry point is the command-line interface `mattermost-backup`
 
 This produces:
 
-* `your-mattermost-url-YYYY-mm-dd.json`: the contents of your teams and posts
+* `your-mattermost-url-yyyy-mm-dd.json`: the contents of your teams, channels, and posts
 * `your-mattermost-url_files/`: all files attached to posts
+
+#### Ignore direct and group messages
+If you are mainly interested in archiving team channels, use the following:
+`mattermost-backup --url your-mattermost-url --ignore-direct-messages`
 
 ## Configuration
 User credentials should be stored in JSON format matching the one shown in `secrets.json.template`. 
@@ -32,3 +36,10 @@ You will need to either provide:
 
 * your username and password
 * a [user access token](https://docs.mattermost.com/integrations/cloud-personal-access-tokens.html)
+
+## Caveats
+*mattermostbackup* does not do the following:
+
+* back up user identities, other than the logged-in user
+* back up deleted teams, channels, or posts
+* back up any teams, channels, or posts not visible to the current user when logged integrations
