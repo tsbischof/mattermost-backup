@@ -43,3 +43,8 @@ You will need to either provide:
 * back up user identities, other than the logged-in user
 * back up deleted teams, channels, or posts
 * back up any teams, channels, or posts not visible to the current user when logged integrations
+
+Other notes:
+
+* all posts are held in memory during the backup process, though files are written to disk on-the-fly. 
+If you find that you run out of memory during this process, consider refactoring the posts retrieval to be written to disk as well.
